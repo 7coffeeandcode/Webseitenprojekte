@@ -1,6 +1,7 @@
 /* ==========================================================================
    1. FARBPALETTE, VARIABLEN & RESET
    ========================================================================== */
+   @import url('https://fonts.googleapis.com/css2?familiy=Satisfy&display=swap');
    :root {
     /* Basis- und Textfarbe */
     --color-dark-slate:   #444444;       /* rgb(68, 68, 68) */
@@ -152,14 +153,16 @@ body {
 }
 
 .hero-tagline {
-    font-family: "Brush Script MT", cursive;
-    font-size: 1.8rem;
+    font-family: 'Satisfy', "Brush Script MT", cursive;
+    font-size: 2.2rem;
     color: var(--color-gold);
-    font-weight: 600;
+    font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-top: 0.5rem;
-}
+    
+   }
+
 
 .hero-text {
     font-size: 1.5rem;
