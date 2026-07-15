@@ -114,7 +114,7 @@ body {
     max-width: 1600px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: minmax(auto, 600px) 1fr;
+    grid-template-columns: 1fr 1.5fr;
     gap: 5rem;
     align-items: start; /* Bild und Textbox exakt oben bündig ausrichten */
     justify-items: start;
@@ -169,7 +169,7 @@ body {
 .hero-text {
     font-size: 1.5rem;
     color: var(--text-main);
-    max-width: 600px;
+    max-width: 950px;
     margin-top: 0.5rem;
 }
 
