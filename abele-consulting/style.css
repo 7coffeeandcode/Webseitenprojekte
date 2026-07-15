@@ -1,0 +1,447 @@
+/* ==========================================================================
+   1. FARBPALETTE, VARIABLEN & RESET
+   ========================================================================== */
+   :root {
+    /* Basis- und Textfarbe */
+    --color-dark-slate:   #444444;       /* rgb(68, 68, 68) */
+    --color-bg-light:     #f4f6f8;       /* rgb(244, 246, 248) */
+
+    /* Die Türkis-Nuancen für die psychologische Note */
+    --color-ice-turquoise:#a2c4c9;       /* rgb(162, 196, 201) */
+    --color-deep-sea:     #488280;       /* rgb(72, 130, 128) */
+
+    /* Der warme, wirtschaftliche Kontrast */
+    --color-gold:         #dba83d;       /* rgb(219, 168, 61) */
+
+    /* Semantische Zuweisungen */
+    --text-main:          var(--color-dark-slate);
+    --bg-main:            var(--color-bg-light);
+    --card-bg:            #ffffff;       /* Reines Weiß für die Kacheln */
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Footer bleibt immer ganz unten am Bildschirmrand */
+}
+
+
+/* ==========================================================================
+   2. HEADER & FOOTER (Auf allen Seiten einheitlich)
+   ========================================================================== */
+.main-header {
+    background-color: var(--color-deep-sea);
+    color: #ffffff;
+    padding: 1.5rem 1rem;
+    text-align: center;
+    border-bottom: 3px solid var(--color-gold); /* Feiner Gold-Akzent */
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header-desc {
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    font-size: 1.2rem;
+}
+
+.main-footer {
+    background-color: var(--color-deep-sea);
+    color: #ffffff;
+    padding: 2rem 1rem;
+    margin-top: auto; /* Schiebt den Footer nach ganz unten */
+    text-align: center;
+    border-top: 3px solid var(--color-gold);
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-contact {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: var(--color-ice-turquoise);
+}
+
+.separator {
+    color: rgba(255, 255, 255, 0.3);
+    margin: 0 0.5rem;
+}
+
+
+/* ==========================================================================
+   3. HERO SECTION (Startseite - Anpassung an den Fotorand)
+   ========================================================================== */
+.hero-section {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding: 3rem 1.5rem;
+}
+
+.hero-container {
+    width: 94%;
+    max-width: 1600px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(auto, 600px) 1fr;
+    gap: 5rem;
+    align-items: start; /* Bild und Textbox exakt oben bündig ausrichten */
+    justify-items: start;
+}
+
+/* Bild-Styling */
+.hero-image-box {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.hero-profile-img {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(68, 68, 68, 0.15);
+    object-fit: cover;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+/* Text-Styling */
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding-top: 4rem; /* Erhöht von 0 auf 4rem – schiebt den Block geschmeidig nach unten */
+}
+
+.hero-name {
+    font-size: 6rem;
+    font-weight: 700;
+    color: var(--color-deep-sea);
+    margin-top: -1.2rem; 
+    line-height: 1;
+    margin-bottom: 4.5rem; /* Erhöht den Abstand nach unten spürbar! */
+}
+
+.hero-tagline {
+    font-family: "Brush Script MT", cursive;
+    font-size: 1.8rem;
+    color: var(--color-gold);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 0.5rem;
+}
+
+.hero-text {
+    font-size: 1.5rem;
+    color: var(--text-main);
+    max-width: 600px;
+    margin-top: 0.5rem;
+}
+
+
+/* ==========================================================================
+   4. STARTSEITEN-NAVIGATION (Die drei Kacheln)
+   ========================================================================== */
+.teaser-nav {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
+    margin-top: 4rem;
+}
+
+.teaser-card {
+    background-color: var(--card-bg);
+    border: 1px solid rgba(72, 130, 128, 0.15);
+    padding: 1.5rem;
+    text-decoration: none;
+    color: var(--text-main);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+
+.teaser-card h3 {
+    color: var(--color-deep-sea);
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.teaser-card span {
+    font-size: 0.85rem;
+    color: var(--color-gold);
+    font-weight: bold;
+}
+
+.teaser-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(72, 130, 128, 0.12);
+    border-color: var(--color-gold);
+}
+
+
+/* ==========================================================================
+   5. UNTERSEITEN-STYLING (Allgemein)
+   ========================================================================== */
+.page-content {
+    flex: 1;
+    padding: 4rem 1.5rem;
+}
+
+.content-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.page-title {
+    font-size: 3rem;
+    color: var(--color-deep-sea);
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.page-intro {
+    font-size: 1.2rem;
+    color: var(--text-main);
+    margin-bottom: 3rem;
+    max-width: 800px;
+}
+
+/* Zurück-Link zur Indexseite */
+.back-link {
+    display: inline-block;
+    color: var(--color-gold);
+    text-decoration: none;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    transition: color 0.3s;
+}
+
+.back-link:hover {
+    color: var(--color-deep-sea);
+}
+
+
+/* ==========================================================================
+   6. SPEZIFISCHE UNTERSEITEN-LAYOUTS
+   ========================================================================== */
+
+/* Layout: Angebot (3er Grid) */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.service-card {
+    background-color: var(--card-bg);
+    border: 1px solid rgba(72, 130, 128, 0.15);
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+    transition: transform 0.3s;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-gold);
+}
+
+.service-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.service-card h2 {
+    color: var(--color-deep-sea);
+    margin-bottom: 1rem;
+}
+
+/* Layout: Über mich (2 Spalten asymmetrisch) */
+.about-layout {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 4rem;
+}
+
+.about-text {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.philosophy-box {
+    background-color: var(--card-bg);
+    border-left: 4px solid var(--color-gold);
+    padding: 1.5rem;
+    border-radius: 0 8px 8px 0;
+    margin-top: 1.5rem;
+}
+
+.philosophy-box h3 {
+    color: var(--color-deep-sea);
+    margin-bottom: 0.5rem;
+}
+
+.philosophy-box ul {
+    list-style-type: none;
+}
+
+.philosophy-box li {
+    margin-bottom: 0.5rem;
+    padding-left: 1.2rem;
+    position: relative;
+}
+
+.philosophy-box li::before {
+    content: "•";
+    color: var(--color-gold);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+/* Sidebar Über mich (Zitat & Fakten) */
+.about-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.quote-card {
+    background-color: var(--color-deep-sea);
+    color: #ffffff;
+    padding: 2rem;
+    border-radius: 8px;
+    font-style: italic;
+    font-size: 1.2rem;
+}
+
+.facts-card {
+    background-color: var(--card-bg);
+    border: 1px solid rgba(72, 130, 128, 0.15);
+    padding: 2rem;
+    border-radius: 8px;
+}
+
+.facts-card h3 {
+    color: var(--color-deep-sea);
+    margin-bottom: 1rem;
+}
+
+.facts-card p {
+    margin-bottom: 0.8rem;
+}
+
+/* Layout: Referenzen (Testimonials Grid) */
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.testimonial-card {
+    background-color: var(--card-bg);
+    border: 1px solid rgba(72, 130, 128, 0.15);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.testimonial-text {
+    font-style: italic;
+    color: #4a5568;
+    margin-bottom: 1.5rem;
+}
+
+.testimonial-author {
+    font-weight: bold;
+    color: var(--color-deep-sea);
+    font-size: 0.95rem;
+}
+
+
+/* ==========================================================================
+   7. RESPONSIVE DESIGN (Mobil-Optimierung)
+   ========================================================================== */
+@media (max-width: 768px) {
+    /* Startseite */
+    .hero-container {
+        grid-template-columns: 1fr; /* Bild und Text fließen untereinander */
+        gap: 2rem;
+        justify-content: center;
+    }
+
+    .hero-image-box {
+        justify-content: center;
+    }
+
+    .hero-profile-img {
+        max-width: 90%;
+    }
+
+    .hero-name {
+        font-size: 3.8rem; /* Auf mobilen Geräten lesbar herunterskaliert */
+        margin-top: 0;      /* Hebt die Verschiebung auf Handys auf */
+        text-align: center;
+    }
+    
+    .hero-tagline, .hero-text {
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .teaser-nav {
+        grid-template-columns: 1fr; /* Kacheln untereinander */
+        gap: 1rem;
+    }
+
+    /* Unterseiten */
+    .page-title {
+        font-size: 2.2rem;
+        text-align: center;
+    }
+
+    .page-intro {
+        text-align: center;
+        margin: 0 auto 2rem auto;
+    }
+    
+    .about-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
