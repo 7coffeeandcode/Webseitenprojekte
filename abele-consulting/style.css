@@ -217,6 +217,227 @@ body {
 /* ==========================================================================
    5. UNTERSEITEN-STYLING (Allgemein)
    ========================================================================== */
+/* ==========================================================================
+   5. UNTERSEITEN-STYLING (Allgemein)
+   ========================================================================== */
+
+/* --- FLEXBOX TABELLEN-STRUKTUR (2 Spalten, 3 Zeilen) --- */
+
+/* 1. Der Hauptbehälter (Schön breit, zentriert und ohne Scrollbalken!) */
+.angebot-container {
+    width: auto;            /* Verhindert den horizontalen Scrollbalken */
+    max-width: 1600px;      /* Verhindert, dass Bilder auf Riesen-Monitoren riesig werden */
+    margin: 0 auto;         /* Zentriert das Layout auf dem Bildschirm */
+    padding: 60px 5%;       /* Luftiger Abstand zu den Rändern */
+    box-sizing: border-box;
+  }
+  
+  /* 2. Jede Zeile */
+  .angebot-row {
+    display: flex;
+    flex-direction: row;
+    gap: 5%;                /* Ein schöner, flexibler Abstand zwischen Bild und Text */
+    margin-bottom: 80px;    /* Luft zwischen den einzelnen Zeilen */
+    align-items: center;    /* Bild und Text werden vertikal mittig zueinander ausgerichtet */
+  }
+  
+  /* 3. Spalte 1: Das Bild (exakt die Hälfte abzüglich des Abstands) */
+  .angebot-bild {
+    flex: 0 0 47.5%;        /* Exakt die halbe Breite minus Spaltanteil */
+  }
+  
+  .angebot-bild img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;     /* Schicke, abgerundete Ecken */
+  }
+  
+  /* 4. Spalte 2: Der Text (exakt die andere Hälfte) */
+  .angebot-text {
+    flex: 0 0 47.5%;        /* Exakt die halbe Breite minus Spaltanteil */
+  }
+  
+  
+  /* ==========================================================================
+     5b. SPEZIALREGEL FÜR REVERSE-REIHEN (z.B. Zeile 2)
+     ========================================================================== */
+  
+  /* Nur auf Bildschirmen ab 769px (Desktop) wird die Spaltenreihenfolge umgedreht */
+  @media (min-width: 769px) {
+    .angebot-row.row-reverse {
+      flex-direction: row-reverse;
+    }
+  }
+  /* ==========================================================================
+   9. SPEZIFISCHES "ÜBER MICH" LAYOUT (Hauptteil mit Hintergrundbild)
+   ========================================================================== */
+/* ==========================================================================
+   9. SPEZIFISCHES "ÜBER MICH" LAYOUT (Hauptteil mit Blocksatz & Hintergrund)
+   ========================================================================== */
+
+/* 1. Hauptbereich mit dem fixierten Hintergrundbild */
+.about-bg-section {
+    flex: 1; /* Füllt den Raum zwischen Header und Footer aus */
+    background: url('img/hintergrundbild.webp') no-repeat center center fixed;
+    background-size: cover; /* Bild füllt den Bildschirm vollflächig aus */
+    padding: 60px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* 2. Container für maximale Breite und Zentrierung */
+  .about-card-container {
+    width: 100%;
+    max-width: 900px; /* Perfekt lesbare Breite für Blocksatz */
+    margin: 0 auto;
+  }
+  
+  /* Zurück-Link Styling */
+  .about-card-container .back-link {
+    display: inline-block;
+    color: var(--color-gold);
+    text-decoration: none;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    background-color: rgba(255, 255, 255, 0.5); /* Box-Hintergrund für gute Lesbarkeit auf dem Bild */
+    padding: 8px 15px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+  }
+  
+  .about-card-container .back-link:hover {
+   
+    background-color: transparent;
+  }
+  
+  /* 3. Die weiße Kachel (Leicht transparent für Tiefenwirkung) */
+  .about-card {
+    background-color: rgba(255, 255, 255, 0.93); 
+    padding: 50px;
+    border-radius: 12px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15); /* Weicher Schattenwurf */
+    border: 1px solid rgba(255, 255, 255, 0.5);
+  }
+  
+  /* Titel und Einleitungssatz */
+  .about-card .page-title {
+    margin-bottom: 1rem;
+  }
+  
+  .about-card .lead-text {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: var(--color-deep-sea);
+    margin-bottom: 2rem;
+    text-align: justify;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+  }
+  
+  /* --- BLOCKSATZ-STYLING FÜR DEN TEXT --- */
+  .about-content p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    text-align: justify;        /* Aktiviert den Blocksatz */
+    hyphens: auto;              /* Verhindert große Lücken durch automatische Trennung */
+    -webkit-hyphens: auto;      /* Safari-Support */
+    -ms-hyphens: auto;          /* IE-Support */
+  }
+  
+  /* 4. Das eingerahmte Abschluss-Motto */
+  .about-quote {
+    background-color: var(--color-bg-light);
+    border-left: 4px solid var(--color-deep-sea); /* Grüne Linie links */
+    padding: 25px;
+    margin-top: 2.5rem;
+    border-radius: 0 8px 8px 0;
+  }
+  
+  .about-quote .quote-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--color-deep-sea);
+    margin-bottom: 0.8rem;
+    text-align: justify;
+  }
+  
+  .about-quote .quote-text {
+    margin-bottom: 0;
+    font-style: italic;
+    text-align: justify;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+  }
+  
+  /* --- MOBILE ANPASSUNG (Handy-Ansicht) --- */
+  @media (max-width: 768px) {
+    .about-bg-section {
+      padding: 30px 10px;
+    }
+  
+    .about-card {
+      padding: 25px 20px; /* Kompakterer Abstand auf Smartphones */
+    }
+    
+    .about-quote .quote-title {
+      font-size: 1.2rem;
+    }
+  }
+  
+  /* ==========================================================================
+     5c. MOBILE ANPASSUNG (Handy-Ansicht)
+     ========================================================================== */
+  
+  @media (max-width: 768px) {
+    .angebot-row {
+      flex-direction: column; /* Macht aus den 2 Spalten eine Spalte untereinander */
+      gap: 30px;              /* Abstand zwischen Bild und Text auf dem Handy */
+      margin-bottom: 50px;    /* Abstand zur nächsten Zeile */
+    }
+  
+    .angebot-bild {
+      flex: 0 0 100%;         /* Bild nutzt auf dem Handy die volle Breite */
+    }
+    
+    .angebot-text {
+      flex: 0 0 100%;         /* Text nutzt auf dem Handy die volle Breite */
+    }
+  }
+   /* Macht den ersten Satz etwas größer und hebt ihn hervor */
+.lead-text {
+    font-size: 1.15rem;
+    line-height: 1.5;
+    color: #333; /* Falls du ein dunkleres Grau für Akzente nutzt */
+    margin-bottom: 20px;
+  }
+  
+  /* Stylt die Liste für die Themen */
+  .themen-liste {
+    list-style-type: none; /* Entfernt die Standard-Punkte */
+    padding-left: 0;
+    margin: 20px 0;
+  }
+  
+  .themen-liste li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 10px;
+    line-height: 1.5;
+  }
+  
+  /* Setzt einen eleganten, dezenten Punkt vor jedes Thema */
+  .themen-liste li::before {
+    content: "•"; 
+    color: #cda45e; /* Hier kannst du die Akzentfarbe von Abele Consulting eintragen! */
+    font-weight: bold;
+    font-size: 1.3rem;
+    position: absolute;
+    left: 5px;
+    top: -2px;
+  }
 .page-content {
     flex: 1;
     padding: 4rem 1.5rem;
