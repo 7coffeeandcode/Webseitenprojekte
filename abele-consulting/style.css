@@ -1,7 +1,9 @@
 /* ==========================================================================
    1. FARBPALETTE, VARIABLEN & RESET
    ========================================================================== */
-   @import url('https://fonts.googleapis.com/css2?familiy=Satisfy&display=swap');
+   /* 1. KORREKTUR: Tippfehler im Wort 'family' behoben */
+   @import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+   
    :root {
     /* Basis- und Textfarbe */
     --color-dark-slate:   #444444;       /* rgb(68, 68, 68) */
@@ -153,16 +155,16 @@ body {
 }
 
 .hero-tagline {
+    /* 2. KORREKTUR: Nutzt jetzt 'Satisfy' als moderne Schreibschrift auf allen Geräten */
     font-family: 'Satisfy', "Brush Script MT", cursive;
     font-size: 2.2rem;
     color: var(--color-gold);
     font-weight: 400;
-    text-transform: uppercase;
+    /* 3. KORREKTUR: Kein UPPERCASE, damit geschwungene Schriften leserlich bleiben */
     letter-spacing: 1px;
     margin-top: 0.5rem;
-    
-   }
-
+    margin-bottom: 1.5rem; /* Definiertes Margin nach unten */
+}
 
 .hero-text {
     font-size: 1.5rem;
@@ -418,11 +420,19 @@ body {
 
     .hero-name {
         font-size: 3.8rem; /* Auf mobilen Geräten lesbar herunterskaliert */
-        margin-top: 0;      /* Hebt die Verschiebung auf Handys auf */
+        line-height: 1.05;  /* Verhindert große Zeilenabstände */
+        margin-top: 0.5rem; /* Kleiner Abstand nach oben zum Bild */
+        margin-bottom: 0.2rem; /* Eng an die Tagline herangeschoben */
         text-align: center;
     }
     
-    .hero-tagline, .hero-text {
+    /* 4. KORREKTUR: Tagline und Text getrennt, damit die Tagline linksbündig bleibt */
+    .hero-tagline {
+        text-align: left;
+        margin: 0.2rem 0 1rem 0; /* Wenig Margin und kein Zentrieren */
+    }
+
+    .hero-text {
         text-align: center;
         margin: 0 auto;
     }
